@@ -60,12 +60,28 @@ public class Salaries {
     }
 
     /**
-     *
-     * @return
+     * Check whether for each employee with at least one non-zero monthly salary
+     * their average salary is not higher than three times the overall average salary
+     * of the other employees.
+     * @return True or False
      */
     public boolean not3TimesHigher() {
-
-        return false;
+        // Average salary of all the employees
+        ArrayList<Double> averageSalaries = this.averageSalaries();
+        int countOfValidEmployees = averageSalaries.size();
+        double sumOfAllSalariesAverage = 0;
+        for (Double average : averageSalaries) {
+            sumOfAllSalariesAverage += average;
+        }
+        for (Double average : averageSalaries) {
+            // The average of the other employees average salary
+            // = (The sum of all average salaries - the average salary of this iteration's employee) /
+            //   (The count of employees whose salary are not all zero - 1)
+            if (average > (sumOfAllSalariesAverage - average) / (countOfValidEmployees - 1) * 3) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -89,7 +105,11 @@ public class Salaries {
     public static void main(String[] args) {
         Salaries salaries = new Salaries();
         salaries.addSalary(new double[]{1000, 1000, 2000, 2000, 0, 0, 0, 0, 0, 0, 0});
-        salaries.addSalary(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1});
+        salaries.addSalary(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 499});
+        salaries.addSalary(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 499});
+        salaries.addSalary(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 499});
+        salaries.addSalary(new double[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 503});
         System.out.println(salaries.averageSalaries());
+        System.out.println(salaries.not3TimesHigher());
     }
 }
