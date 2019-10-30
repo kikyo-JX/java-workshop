@@ -1,4 +1,4 @@
-package com.birmingham.hci.workshop.worksheet1;
+package com.birmingham.hci.workshop.chen.worksheet1;
 
 public class Exercise2 {
     public static void main(String[] args) {

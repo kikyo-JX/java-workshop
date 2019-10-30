@@ -1,4 +1,4 @@
-package com.birmingham.hci.workshop.worksheet1.scope;
+package com.birmingham.hci.workshop.chen.worksheet1.scope;
 
 /**
  * User: Chen Liu
