@@ -20,7 +20,7 @@ public class AccountStandard extends Account implements AccountStandardInterface
     /**
      * A fixed number of 3 maximal login attempts
      */
-    private final static int MAXIMAL_LOGIN_ATTEMPTS = 3;
+    public final static int MAXIMAL_LOGIN_ATTEMPTS = 3;
 
     /**
      * The balance in the account
@@ -36,6 +36,19 @@ public class AccountStandard extends Account implements AccountStandardInterface
      * The number of failed login attempts
      */
     private int failedLoginAttempts;
+
+    /**
+     * Constructor
+     *
+     * @param name       name
+     * @param salutation salutation
+     * @param email      email
+     * @param password   password
+     */
+    public AccountStandard(String name, String salutation, String email, String password) {
+        super(name, salutation, email, password);
+    }
+
 
     /**
      * Getter method to return the balance.

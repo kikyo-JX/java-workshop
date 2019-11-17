@@ -37,6 +37,21 @@ public abstract class Account implements AccountInterface {
     protected boolean loggedIn;
 
     /**
+     * Constructor
+     *
+     * @param name       name
+     * @param salutation salutation
+     * @param email      email
+     * @param password   password
+     */
+    public Account(String name, String salutation, String email, String password) {
+        this.name = name;
+        this.salutation = salutation;
+        this.email = email;
+        this.password = password;
+    }
+
+    /**
      * We require in each sub-class the existence of a login method.
      *
      * @param password The password provided that will be compared to
@@ -163,7 +178,7 @@ public abstract class Account implements AccountInterface {
     public void changePassword(String oldPassword, String newPassword) {
         if (this.checkPassword(oldPassword)) {
             // Check old password
-            this.setPassword(password);
+            this.setPassword(newPassword);
         } else {
             System.out.println("Old password is wrong.");
         }

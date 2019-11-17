@@ -4,7 +4,7 @@ package com.birmingham.hci.workshop.chen.worksheet4;
  * The class is used to represent music titles in form of a title, an
  * artist, and a price, of types String, String, and int,
  * respectively.  login attempts.
- *
+ * <p>
  * User: Chen Liu
  * Date: 2019/11/16
  * Time: 11:21 pm
@@ -25,6 +25,19 @@ public class MusicTitle implements MusicTitleInterface {
      * The price of the music
      */
     private int price;
+
+    /**
+     * Constructor
+     *
+     * @param title  title
+     * @param artist artist
+     * @param price  price
+     */
+    public MusicTitle(String title, String artist, int price) {
+        this.title = title;
+        this.artist = artist;
+        this.price = price;
+    }
 
     /**
      * Standard getter for the title

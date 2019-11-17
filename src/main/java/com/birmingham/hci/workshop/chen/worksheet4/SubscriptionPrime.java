@@ -19,6 +19,19 @@ public class SubscriptionPrime extends Subscription implements SubscriptionPrime
     private String deliveryAddress;
 
     /**
+     * Constructor
+     *
+     * @param title           title
+     * @param email           email
+     * @param cost            cost
+     * @param deliveryAddress deliveryAddress
+     */
+    public SubscriptionPrime(String title, String email, int cost, String deliveryAddress) {
+        super(title, email, cost);
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    /**
      * A standard getter for the address.
      *
      * @return The address to which the journal is to be sent.

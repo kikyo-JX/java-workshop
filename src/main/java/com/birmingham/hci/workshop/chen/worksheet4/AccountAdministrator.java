@@ -21,6 +21,18 @@ public class AccountAdministrator extends Account implements AccountAdministrato
     private ArrayList<Account> accounts = new ArrayList<>();
 
     /**
+     * Constructor
+     *
+     * @param name       name
+     * @param salutation salutation
+     * @param email      email
+     * @param password   password
+     */
+    public AccountAdministrator(String name, String salutation, String email, String password) {
+        super(name, salutation, email, password);
+    }
+
+    /**
      * Getter method to return the list of accounts the administrator
      * looks after.
      *
@@ -57,12 +69,15 @@ public class AccountAdministrator extends Account implements AccountAdministrato
      */
     @Override
     public void resetAccount(Account account, String password) {
-        // Reset password
-        account.setPassword(password);
-        if (account instanceof AccountStandard) {
-            // account is a instance of AccountStandard
-            // Reset failed login attempts to zero
-            ((AccountStandard) account).setFailedLoginAttempts(0);
+        if (this.accounts.contains(account)) {
+            // account is looked after by this administrator
+            // Reset password
+            account.setPassword(password);
+            if (account instanceof AccountStandard) {
+                // account is a instance of AccountStandard
+                // Reset failed login attempts to zero
+                ((AccountStandard) account).setFailedLoginAttempts(0);
+            }
         }
     }
 

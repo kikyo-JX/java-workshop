@@ -27,6 +27,19 @@ public class Subscription implements SubscriptionInterface {
     protected int cost;
 
     /**
+     * Constructor
+     *
+     * @param title title
+     * @param email email
+     * @param cost  cost
+     */
+    public Subscription(String title, String email, int cost) {
+        this.title = title;
+        this.email = email;
+        this.cost = cost;
+    }
+
+    /**
      * A standard getter for the title.
      *
      * @return The title of the journal.
